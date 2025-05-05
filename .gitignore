@@ -1,4 +1,6 @@
 creds.py
 users.db
 .env
-.idea
+.idea/
+migrations/versions
+

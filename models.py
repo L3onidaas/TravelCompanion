@@ -9,6 +9,7 @@ class User(Base):
     id = mapped_column(Integer, primary_key=True, index=True)
     name = mapped_column(String, index=True)
     city = mapped_column(String, index=True)
+    email = mapped_column(String, index=True)
 
 
 class Place(Base):

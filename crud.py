@@ -3,19 +3,32 @@ from sqlalchemy.orm import Session
 import schemas
 
 
-def save_place(new_places, db: Session):
-    db_place = models.Place(name=new_places['name'], address=new_places['address'], city=new_places['city'])
-    db.add(db_place)
-    db.commit()
-    db.refresh(db_place)
+def save_place(new_places, db: Session) -> models.Place:
+    """Функция записи мест в БД"""
+    try:
+        db_place = models.Place(name=new_places['name'], address=new_places['address'], city=new_places['city'])
+        db.add(db_place)
+        db.commit()
+        db.refresh(db_place)
 
-    return db_place
+        return db_place
+
+    except:
+        return f'Ошибка в save_place'
 
 
-def save_user(user: schemas.Users, db: Session):
-    db_user = models.User(name=user.name, city=user.city)
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
+def save_user(user: schemas.Users, db: Session) -> models.User:
+    """Функция записи пользователей в БД"""
 
-    return db_user
+    try:
+        db_user = models.User(name=user.name, city=user.city)
+        db.add(db_user)
+        db.commit()
+        db.refresh(db_user)
+
+        return db_user
+
+    except:
+        return f'Ошибка в save_user'
+
+

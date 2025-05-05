@@ -5,11 +5,12 @@ from crud import save_place
 from services.service import result_place
 
 
-router = APIRouter()
+places_router = APIRouter()
 
 
-@router.get('/places/')
-def places(place: str, city: str, db: Session = Depends(get_db)):
+@places_router.get('/places/')
+def places(place: str, city: str, db: Session = Depends(get_db)) -> str:
+    """Функция для получения и записи мест в БД"""
 
     all_places = result_place(place, city)
 
