@@ -1,6 +1,6 @@
-import models
+from database import models
 from sqlalchemy.orm import Session
-import schemas
+from schemas import schemas
 
 
 def save_place(new_places, db: Session) -> models.Place:

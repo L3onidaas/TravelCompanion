@@ -7,7 +7,6 @@ from alembic import context
 
 from database import database_url
 from database import Base
-import models
 
 print("DEBUG: Base metadata tables:", Base.metadata.tables)
 
